@@ -2,8 +2,8 @@
 #include <Ethernet.h>
 
 //Pin definitions
-#define PIN_LDR_1 A1
-#define PIN_LDR_2 A2
+#define PIN_LDR1 A1
+#define PIN_LDR2 A2
 #define PIN_BUTTON A3
 
 // Global variables
@@ -42,8 +42,8 @@ void setup() {
   LOOP
 ---------------------------------------------------------------------*/
 void loop() {
-  LRD1 = analogRead(PIN_LDR_1);
-  LRD2 = analogRead(PIN_LDR_2);
+  LDR1 = analogRead(PIN_LDR1);
+  LDR2 = analogRead(PIN_LDR2);
   button = analogRead(PIN_BUTTON);
 
   httpRequest();
@@ -80,7 +80,7 @@ void httpRequest() {
     client.println("User-Agent: arduino-ethernet");
     client.println("Connection: close");
     client.println();
-    Serial.println("Data sent: %d - %d - %d", LDR1, LDR2, button);
+    Serial.println("Data sent");
   } else {
     // if you didn't get a connection to the server:
     Serial.println("Connection failed");
