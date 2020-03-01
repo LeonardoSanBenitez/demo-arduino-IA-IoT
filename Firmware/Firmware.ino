@@ -8,8 +8,8 @@
 
 // Global variables
 int LDR1, LDR2, button;
-byte mac[] = { 0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED };  // assign a MAC address for the ethernet controller.
-char server[] = "arduino-demo.000webhostapp.com";
+byte mac[] = { 0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED };  // Endereço MAC da shield arduino (nao  importante, pode deixar essa mesmo)
+char server[] = "benitez-robotics.000webhostapp.com";
 IPAddress ip(145, 14, 145, 236);            // Set the static IP address to use if the DHCP fails to assign
 
 /** RESOURCE DECLARATIONS **/
@@ -48,7 +48,7 @@ void loop() {
 
   httpRequest();
 
-  delay(20);
+  delay(5);
 }
 
 
@@ -67,7 +67,7 @@ void httpRequest() {
   if (client.connect(server, 80)) {
     Serial.println("connected!");
     // Make a HTTP request:
-    client.print("GET /API_data_receive.php?");
+    client.print("GET /demo/API_data_receive.php?");
     client.print("LDR1=");
     client.print(LDR1);
     client.print("&LDR2=");
@@ -80,7 +80,21 @@ void httpRequest() {
     client.println("User-Agent: arduino-ethernet");
     client.println("Connection: close");
     client.println();
+    
+    Serial.print("GET /demo/API_data_receive.php?");
+    Serial.print("LDR1=");
+    Serial.print(LDR1);
+    Serial.print("&LDR2=");
+    Serial.print(LDR2);
+    Serial.print("&button=");
+    Serial.print(button);
+    Serial.println(" HTTP/1.1");
+    Serial.print("Host: ");
+    Serial.println(server);
+    Serial.println("User-Agent: arduino-ethernet");
+    Serial.println("Connection: close");    
     Serial.println("Data sent");
+    Serial.println();
   } else {
     // if you didn't get a connection to the server:
     Serial.println("Connection failed");

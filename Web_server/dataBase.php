@@ -4,9 +4,9 @@
     function connectDB(){
 		///Database variables
 		$bdServer = 'localhost';
-		$bdUser = 'id12630095_root';
-		$bdPassword = 'root123';
-		$bdName = 'id12630095_robotics';
+		$bdUser = 'root';
+		$bdPassword = 'root';
+		$bdName = 'IA_demo';
 		///Connection
 		$_connection = mysqli_connect($bdServer, $bdUser, $bdPassword, $bdName);
 		if (mysqli_connect_errno($_connection)) {
