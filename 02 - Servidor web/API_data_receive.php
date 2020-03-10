@@ -2,7 +2,7 @@
 	include "dataBase.php";
 	date_default_timezone_set('America/Sao_Paulo');
 
-	if (isset($_GET['LDR1'])) {	//TODO: tem um jeito melhor de verificar isso?
+	if (isset($_GET['LDR1'])) {
 		$_buffer = array();
 		$_buffer['LDR1'] = $_GET['LDR1'];
         $_buffer['LDR2'] = $_GET['LDR2'];

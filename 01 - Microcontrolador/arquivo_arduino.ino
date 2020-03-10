@@ -9,8 +9,8 @@
 // Global variables
 int LDR1, LDR2, button;
 byte mac[] = { 0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED };  // Endereço MAC da shield arduino (nao  importante, pode deixar essa mesmo)
-char server[] = "benitez-robotics.000webhostapp.com";
-IPAddress ip(145, 14, 145, 236);            // Set the static IP address to use if the DHCP fails to assign
+char server[] = "ec2-54-189-183-38.us-west-2.compute.amazonaws.com"; //set DNS
+IPAddress ip(54, 189, 183, 38);            // Set the static IP address to use if the DHCP fails to assign
 
 /** RESOURCE DECLARATIONS **/
 EthernetClient client;
@@ -24,6 +24,7 @@ void setup() {
   pinMode(PIN_BUTTON, INPUT);
 
   /** SERIAL INIT **/
+  // O serial é apenas para debug
   Serial.begin(9600);
   while (!Serial) {;}
   Serial.println("Serial initialized");
@@ -81,6 +82,7 @@ void httpRequest() {
     client.println("Connection: close");
     client.println();
     
+    // As linhas abaixo são soó para debugar
     Serial.print("GET /demo/API_data_receive.php?");
     Serial.print("LDR1=");
     Serial.print(LDR1);
