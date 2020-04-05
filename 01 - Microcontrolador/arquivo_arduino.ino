@@ -8,9 +8,9 @@
 
 // Global variables
 int LDR1, LDR2, button;
-byte mac[] = { 0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED };  // Endereço MAC da shield arduino (nao  importante, pode deixar essa mesmo)
 char server[] = "ec2-54-189-183-38.us-west-2.compute.amazonaws.com"; //set DNS
-IPAddress ip(54, 189, 183, 38);            // Set the static IP address to use if the DHCP fails to assign
+byte mac[] = { 0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED };  // Endereço MAC da shield arduino (nao  importante, pode deixar essa mesmo)
+IPAddress ip(192, 168, 0, 66); // Set the static IP address to use if the DHCP fails to assign
 
 /** RESOURCE DECLARATIONS **/
 EthernetClient client;
