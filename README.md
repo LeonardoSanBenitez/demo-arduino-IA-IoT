@@ -16,7 +16,7 @@ Para implementar o seu basta mudar o endereço IP para o servidor que você subi
 
 Tecnologias utilizadas:
 
-* Microcontrolador: pequeno processador que consegue ler valor de tensão, se comunicar pela internet, etc
+* Microcontrolador: pequeno processador que consegue ler valores de tensão, se comunicar pela internet, etc
 * Linguagem C: linguagem de programação de baixo nível
 * Wiring: adaptação da linguagem C
 * LDR: Light Dependent Resistor, usado como sensor de luminosidade
@@ -51,9 +51,15 @@ Palavras chaves:
 
 Amazon Web Services (gratuito no primeiro ano)
 
-Instância básica EC2 com o stack LAMP (Linux, Apache, MySQL, PHP) instalado: ver [este tutorial](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-lamp-amazon-linux-2.html)
+Passo-a-passo para fazer o setup de uma instância basica EC2 (máquina virtual) com o stack LAMP (Linux, Apache, MySQL, PHP) instalado:
 
-Outra opção mais simples: 000webhost
+* Criar uma instância (máquina virtual): [tutorial](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EC2_GetStarted.html#ec2-launch-instance)
+* Conecte-se a ela usando ssh: [tutorial](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AccessingInstancesLinux.html)
+* Instale o que for necessário (apache, banco de dados e interface gráfica pro banco de dados): [tutorial](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-lamp-amazon-linux-2.html)
+
+
+
+Existem outras opções mais simples, como por exemplo [000webhost](https://www.000webhost.com/)
 
 ## Setup do banco de dados
 
@@ -61,7 +67,7 @@ Crie o banco de dados: lado esquerdo do PHPmyAdmin, *new table*, eu dei o nome *
 
 Crie a tabela para organizar os dados:
 
-```
+```sql
  CREATE TABLE `demo_LDR` ( 
      `id` INT NOT NULL AUTO_INCREMENT,
      `LDR1` INT NULL ,
@@ -70,7 +76,6 @@ Crie a tabela para organizar os dados:
      
      PRIMARY KEY (`id`)
  )
- ```SQL
 ```
 
 ## Setup do website
@@ -88,3 +93,19 @@ Teste tudo inserindo um dado fake, digintado no navegador (ou seja, fazendo um g
 ```
 
 # Análise
+
+Linguagens e tecnologias:
+
+* Python: linguagem de programação utilizada
+* Jupyter notebook: software para rodar python
+* Colaboratory: plataforma online da Google similar ao Jupyter
+* Scikit learn, pandas, numpy, matplotlib: bibliotecas para data science
+* R, matlab, C++: outras linguagens muito utilizadas
+
+Etapas:
+
+1. Definição do problema
+2. Coleta de dados
+3. Pré-processamento dos dados
+4. Treinar o modelo
+5. Avaliar (métricas de classificação, testar novos pontos e visualizar a fronteira de decisão)
